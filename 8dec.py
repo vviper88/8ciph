@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
+import base64
 
 otp_file = input("File to read OTP from? ")
 message_to_decode = input("Message to decode? ")
 message_to_dec_list = message_to_decode.split("  ")
-
+message_near_end_list = []
 with open(otp_file, "r") as file:
     file_lines = file.readlines()
     file_lines.pop(0)
@@ -14,8 +15,9 @@ for number in message_to_dec_list:
     for line in file_lines:
         if number in line:
             if list(line)[1] == "L":
-                print(last_character, end="")
+                message_near_end_list.append(last_character)
             else:
-                print(list(line)[0], end="")
+                message_near_end_list.append(list(line)[0])
                 last_character = list(line)[0]
-print("")
+
+print(base64.urlsafe_b64decode(" ".join(message_near_end_list)))
