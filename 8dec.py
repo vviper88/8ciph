@@ -20,4 +20,4 @@ for number in message_to_dec_list:
                 message_near_end_list.append(list(line)[0])
                 last_character = list(line)[0]
 
-print(base64.urlsafe_b64decode(" ".join(message_near_end_list)))
+print(base64.b64decode("".join(message_near_end_list)).decode())
