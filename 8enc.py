@@ -9,7 +9,7 @@ with open(otp_file, "r") as file:
     file_lines.pop(0)
     file_lines.pop(-1)
     file.close()
-
+print(f"Base64 to be encrypted: {base64.b64encode(message_to_encode.encode()).decode()}")
 message_list = list(base64.b64encode(message_to_encode.encode()).decode())
 character_last = ""
 for character in message_list:
