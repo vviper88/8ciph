@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import base64
 
 otp_file = input("File to read OTP from? ")
 message_to_encode = input("Message to encode? ")
@@ -9,7 +10,7 @@ with open(otp_file, "r") as file:
     file_lines.pop(-1)
     file.close()
 
-message_list = list(message_to_encode)
+message_list = list(base64.urlsafe_b64encode(message_to_encode.encode()))
 character_last = ""
 for character in message_list:
     if character_last == character:
