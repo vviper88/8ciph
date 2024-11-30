@@ -19,5 +19,5 @@ for number in message_to_dec_list:
             else:
                 message_near_end_list.append(list(line)[0])
                 last_character = list(line)[0]
-
+print(f"Base64 to be decoded: {''.join(message_near_end_list)}")
 print(base64.b64decode("".join(message_near_end_list)).decode())
