@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import base64
+import secrets
 
 otp_file = input("File to read OTP from? ")
 message_to_encode = input("Message to encode? ")
@@ -20,7 +21,7 @@ for character in message_list:
     else:
         for line in file_lines:
             if character == list(line)[0]:
-                print(line.split()[1], " ", end="")
+                print(line.split()[secrets.randbelow(3) + 1], " ", end="")
                 break
     character_last = character
 print('')
