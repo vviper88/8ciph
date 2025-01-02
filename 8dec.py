@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import base64
-
-otp_file = input("File to read OTP from? ")
-message_to_decode = input("Message to decode? ")
+import sys 
+otp_file = sys.argv[1]
+message_to_decode = sys.argv[2]
 message_to_dec_list = message_to_decode.split("  ")
 message_near_end_list = []
 with open(otp_file, "r") as file:
