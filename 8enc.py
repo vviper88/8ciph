@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import base64
 import secrets
-
-otp_file = input("File to read OTP from? ")
-message_to_encode = input("Message to encode? ")
+import sys
+otp_file = sys.argv[1]
+message_to_encode = sys.argv[2]
 
 with open(otp_file, "r") as file:
     file_lines = file.readlines()
